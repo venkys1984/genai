@@ -13,6 +13,7 @@ task = Task(
     description="Answer the user's question: What are the benefits of meditation?",
     agent=agent,
     expected_output='Give a correct response'
+    
 )
 
 # 🚀 Assemble the crew and run it
