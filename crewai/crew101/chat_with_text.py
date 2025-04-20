@@ -1,7 +1,7 @@
 from crewai_tools import PDFSearchTool
 from crewai import Agent, Task, Crew
 
-pdf_tool = PDFSearchTool(pdf='/home/venky/Downloads/treasure_island.pdf')
+pdf_tool = PDFSearchTool(pdf='/home/venky/Downloads/treasure_island.pdf', verbose=True)
 
 research_agent = Agent(
     role = 'Research Agent',
@@ -11,7 +11,7 @@ research_agent = Agent(
     backstory=(
         """The agent is good at searching documents and providing answers to the questions based on the document"""
     ),
-    tools=[pdf_tool]
+    tools=[pdf_tool],
 )
 
 test_task = Task(
@@ -22,7 +22,8 @@ test_task = Task(
 
 crew = Crew(
     agents=[research_agent],
-    tasks=[test_task]
+    tasks=[test_task],
+    verbose = True
 )
 
 output = crew.kickoff()
